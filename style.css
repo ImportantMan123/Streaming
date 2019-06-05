@@ -94,8 +94,15 @@ main {
 }
 /***** End Mainbar *****/
 
-/***** Start Playback *****/
 
+#project-cont {
+    display: flex;
+    background: deeppink;
+    width: 100%;
+}
+
+
+/***** Start Playback *****/
 #play-cont {
     display: flex;
     background: yellow;
@@ -179,3 +186,5 @@ main {
     width: 100%;
     max-width: 200px;
 }
+
+/***** End Playback *****/
