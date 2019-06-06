@@ -7,7 +7,6 @@ trackLinkArray.forEach (function(entry) {
     console.log(entry);
 });
 
-
 var itm = document.getElementsByID("project-cont-btm").lastChild;
 var cln = itm.cloneNode(true);
 document.getElementById("project-cont-btm").appendChild(cln);
