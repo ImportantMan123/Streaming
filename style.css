@@ -20,6 +20,7 @@ main {
 #main-cont {
     display: flex;
     flex-direction: row;
+    width: 100%;
     height: 100%;
     align-items: stretch;
 }
@@ -27,7 +28,7 @@ main {
 #side-bar {
     left: 0;
     top: 0;
-    flex-grow: 1;
+    width:100%;
     display: flex;
     max-width: 250px;
     background: deepskyblue;
@@ -35,21 +36,25 @@ main {
 }
 
 #middle-cont {
-    flex-grow: 4;
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    width: 100%;
     background: blueviolet;
-    height: 100%;
+    max-height: 100%;
 }
 
 /***** Start Mainbar *****/
 #main-bar {
     display: flex;
     margin: 0 auto;
-    top:0px;
+    top:0;
     width:100%;
     height: 40px;
     background: bisque;
     align-items: center;
+    align-content: stretch;
 }
 
 .nav-arrow {
@@ -68,7 +73,7 @@ main {
     text-decoration: none;
     border: solid 2px;
     border-radius: 20px;
-    overflow: none;
+    overflow: hidden;
     border-color: #CCCCCC;
     background: white;
 }
@@ -76,11 +81,11 @@ main {
 #search-input {
     height: 24px;
     max-width: 160px;
-    border-radius: 0px;
+    border-radius: 0;
     border-color: grey;
     color: grey;
     box-shadow: none;
-    border-width: 0px;
+    border-width: 0;
     box-sizing: border-box;
     margin-left: 10px;
 }
@@ -95,12 +100,80 @@ main {
 /***** End Mainbar *****/
 
 
-#project-cont {
+/***** Start Project Content *****/
+#project-outer-cont {
     display: flex;
-    background: deeppink;
-    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    flex: 1;
+    max-width: 100%;
+    padding: 0 10px;
+    max-height: 100%;
 }
 
+/***** Start Project Cont Top *****/
+#project-cont-top {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: stretch;
+    background: deeppink;
+    width: 100%;
+    max-width: 100%;
+    max-height: 180px;
+    padding: 10px 0;
+}
+
+#project-cont-art {
+    display:flex;
+    background: turquoise;
+    width:25%;
+    max-width: 25%;
+    max-height: 100%;
+    flex: 1;
+    padding: 10px;
+}
+
+#project-art {
+    display: flex;
+    background: white;
+    width: 100%;
+    max-height: 100%;
+}
+
+
+#project-cont-info {
+    display: flex;
+    flex-direction: column;
+    background: rosybrown;
+    max-height: 100%;
+    width:75%;
+    max-width: 75%;
+    padding: 10px;
+}
+
+#project-title {
+
+}
+
+#project-artist {
+
+}
+
+/***** End Project Cont Top *****/
+
+/***** Start Project Cont Btm *****/
+
+#project-cont-btm {
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    padding:0 10px;
+}
+/***** End Project Cont Btm *****/
+/***** End Project Content *****/
 
 /***** Start Playback *****/
 #play-cont {
@@ -110,7 +183,7 @@ main {
     position: absolute;
     margin: 0 auto;
     width: 100%;
-    bottom: 0px;
+    bottom: 0;
     justify-content: space-between;
     align-items: stretch;
 }
@@ -120,14 +193,14 @@ main {
     flex-direction: row;
     background: orangered;
     width: 100%;
-    padding: 10px 5px;
+    padding:10px 5px;
     max-width: 200px;
     justify-content: space-between;
     align-items: center;
 }
 
 #play-now div {
-    margin: 0px 5px;
+    margin: 0 5px;
 }
 
 #play-img {
@@ -163,7 +236,7 @@ main {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .play-back-btns {
@@ -188,3 +261,7 @@ main {
 }
 
 /***** End Playback *****/
+
+.content-spacing {
+    padding:0 15px;
+}
