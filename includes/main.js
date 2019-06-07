@@ -6,7 +6,10 @@ trackLinkArray.forEach (function(element) {
 });
 
 function myFunction() {
-    const itm = document.getElementById("project-cont-btm").lastChild;
-    const cln = itm.cloneNode(true);
-    document.getElementById("project-cont-btm").appendChild(cln);
+    const projectContBtm = document.getElementById('project-cont-btm');
+    const projectTrackCont = projectContBtm.lastElementChild;
+    const projectTrackClone = projectTrackCont.cloneNode();
+
+    projectContBtm.appendChild(projectTrackClone);
 }
+
