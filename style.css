@@ -18,11 +18,14 @@ main {
 }
 
 #main-cont {
+    top: 0;
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
     align-items: stretch;
+    z-index: 1;
+    margin-bottom: 60px;
 }
 
 #side-bar {
@@ -30,13 +33,14 @@ main {
     top: 0;
     width:100%;
     display: flex;
-    max-width: 250px;
+    max-width: 220px;
     background: deepskyblue;
     height: 100%;
 }
 
 #middle-cont {
     display: flex;
+    top:0;
     flex-direction: column;
     align-items: stretch;
     align-content: stretch;
@@ -48,6 +52,7 @@ main {
 /***** Start Mainbar *****/
 #main-bar {
     display: flex;
+    position: fixed;
     margin: 0 auto;
     top:0;
     width:100%;
@@ -109,7 +114,9 @@ main {
     flex: 1;
     max-width: 100%;
     padding: 0 10px;
-    max-height: 100%;
+    margin-top: 40px;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 /***** Start Project Cont Top *****/
@@ -221,14 +228,16 @@ main {
 /***** Start Playback *****/
 #play-cont {
     display: flex;
+    position: fixed;
     background: yellow;
     height: 60px;
-    position: absolute;
     margin: 0 auto;
+    margin-top: 1px;
     width: 100%;
     bottom: 0;
     justify-content: space-between;
     align-items: stretch;
+    z-index: 1;
 }
 
 #play-now {
