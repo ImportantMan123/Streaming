@@ -294,19 +294,22 @@ main {
 .play-back-btns {
     display: flex;
     background: coral;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     text-decoration: none;
     align-items: center;
     justify-content: center;
 }
 
-#shuffle {
-
+#play-track {
+    width: 18px;
+    height: 18px;
 }
 
 #play-controls {
     display: flex;
+    justify-content: center;
+    align-items: center;
     background: green;
     width: 100%;
     max-width: 200px;
