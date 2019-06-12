@@ -4,7 +4,8 @@ const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
 var projectTrackTitle = projectTrackCont.children[1];
 
-var currentSong = trackLinkArray[1];
+const player = document.getElementById('music_player');
+var trackNumber = 0;
 
 /* Dynamically copy & create all the track information */
 for(let i = 0; i < trackLinkArray.length; i++) {
@@ -26,22 +27,30 @@ function createProjectTrackCont(cycleNumber) {
         projectTrackCloneNo.innerHTML = cycleNumber + 1;
         var projectTrackCloneTitle = projectTrackClone.children[1];
         projectTrackCloneTitle.innerHTML = trackLinkArray[cycleNumber];
-
     }
 
 }
 
-const player = document.getElementById('music_player');
-player.setAttribute('src',currentSong);
-
-
+/* Play functionality */
+function prev_aud() {
+    trackNumber --;
+    return trackNumber;
+}
 
 
 function play_aud() {
+    currentSong = trackLinkArray[trackNumber];
+    player.setAttribute('src',currentSong);
     player.play();
 }
 
-function pause_aud() {
+function next_aud() {
+    trackNumber ++;
+    return trackNumber;
+}
+
+
+/*function pause_aud() {
     player.pause();
 }
 
@@ -49,27 +58,17 @@ function stop_aud() {
     player.pause();
     player.currentTime = 0;
 }
+*/
 
 function change_vol() {
     player.volume = document.getElementById("change_vol").value;
 }
 
-/*Play Functionality */
-/*let j = 0;
-var songNumber = j;
-var currentSong = trackLinkArray[songNumber];
 
-function clickPlay() {
-    currentSong
-}
 
-function clickNext() {
-    j++;
-}
 
-function clickPrev(){
-    J--;
-} */
+
+
 
 
 
