@@ -33,37 +33,43 @@ function createProjectTrackCont(cycleNumber) {
 
 /* Play functionality */
 function prev_aud() {
-    trackNumber --;
-    return trackNumber;
+    if (player.paused) {
+        trackNumber --;
+        return trackNumber;
+    }
+    else {
+        trackNumber --;
+        play_aud(trackNumber--);
+    }
 }
 
 
 function play_aud() {
-    currentSong = trackLinkArray[trackNumber];
-    player.setAttribute('src',currentSong);
-    player.play();
+    if (player.paused){
+        currentSong = trackLinkArray[trackNumber];
+        player.setAttribute('src',currentSong);
+        player.play();
+    }
+    else if (player.currentTime > 0){
+        currentSong = trackLinkArray[trackNumber];
+        player.setAttribute('src',currentSong);
+        player.play();
+    }
+    else {
+        player.pause();
+    }
 }
 
 function next_aud() {
-    trackNumber ++;
-    return trackNumber;
+    if (player.paused) {
+        trackNumber ++;
+        return trackNumber;
+    }
+    else {
+        trackNumber ++;
+        play_aud(trackNumber++);
+    }
 }
-
-
-/*function pause_aud() {
-    player.pause();
-}
-
-function stop_aud() {
-    player.pause();
-    player.currentTime = 0;
-}
-*/
-
-function change_vol() {
-    player.volume = document.getElementById("change_vol").value;
-}
-
 
 
 
