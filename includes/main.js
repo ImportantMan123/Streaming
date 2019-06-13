@@ -115,6 +115,21 @@ function change_vol(value) {
 /* Updates divs to display information of currentSong */
 const projectTitleDiv = document.getElementById('project-title').children[0];
 projectTitleDiv.innerHTML = currentSong;
+
+const projectArtistDiv = document.getElementById('project-artist').children[0];
+projectArtistDiv.innerHTML = currentSong;
+
+const playTitleDiv = document.getElementById('play-title').children[0];
+playTitleDiv.innerHTML = currentSong;
+
+const playArtistDiv = document.getElementById('play-artist').children[0];
+playArtistDiv.innerHTML = currentSong;
+
 function updateTrack(currentSong) {
     projectTitleDiv.innerHTML = currentSong;
+    playTitleDiv.innerHTML = currentSong;
+    playArtistDiv.innerHTML = currentSong;
+    projectTitleDiv.innerHTML = currentSong;
 }
+
+
