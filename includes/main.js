@@ -38,8 +38,7 @@ function prev_aud() {
         return trackNumber;
     }
     else {
-        trackNumber --;
-        play_aud(trackNumber--);
+        already_playing(trackNumber--);
     }
 }
 
@@ -50,14 +49,15 @@ function play_aud() {
         player.setAttribute('src',currentSong);
         player.play();
     }
-    else if (player.currentTime > 0){
-        currentSong = trackLinkArray[trackNumber];
-        player.setAttribute('src',currentSong);
-        player.play();
-    }
     else {
         player.pause();
     }
+}
+
+function already_playing() {
+    currentSong = trackLinkArray[trackNumber];
+    player.setAttribute('src',currentSong);
+    player.play();
 }
 
 function next_aud() {
@@ -66,9 +66,13 @@ function next_aud() {
         return trackNumber;
     }
     else {
-        trackNumber ++;
-        play_aud(trackNumber++);
+        already_playing(trackNumber++);
     }
+}
+
+if (player.ended) {
+    trackNumber ++;
+    play_aud(trackNumber++);
 }
 
 
