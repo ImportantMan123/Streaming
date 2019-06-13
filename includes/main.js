@@ -4,10 +4,6 @@ const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
 var projectTrackTitle = projectTrackCont.children[1];
 
-const player = document.getElementById('music_player');
-var trackLinkArrayLength = trackLinkArray.length;
-var trackNumber = 0;
-
 /* Dynamically copy & create all the track information */
 for(let i = 0; i < trackLinkArray.length; i++) {
     createProjectTrackCont(i);
@@ -27,11 +23,16 @@ function createProjectTrackCont(cycleNumber) {
         projectTrackCloneTitle.innerHTML = trackLinkArray[cycleNumber];
     }
 }
+/* Information for playing music */
+const player = document.getElementById('music_player');
+var trackLinkArrayLength = trackLinkArray.length;
+var trackNumber = 0;
+var currentSong = trackLinkArray[trackNumber];
 
 /* play/pause button */
 function play_pause_aud() {
     if (player.paused){
-        currentSong = trackLinkArray[trackNumber];
+
         player.setAttribute('src',currentSong);
         player.play();
     }
@@ -51,7 +52,7 @@ function auto_play() {
     }
     else {
         trackNumber ++;
-        currentSong = trackLinkArray[trackNumber];
+        updateTrack(currentSong);
         player.setAttribute('src',currentSong);
         player.play();
     }
@@ -64,6 +65,7 @@ function prev_aud() {
     }
     else if (player.paused) {
         trackNumber --;
+        updateTrack(currentSong);
         return trackNumber;
     }
     else {
@@ -77,6 +79,7 @@ function next_aud() {
     }
     else if (player.paused) {
         trackNumber ++;
+        updateTrack(currentSong);
         return trackNumber;
     }
     else {
@@ -85,8 +88,9 @@ function next_aud() {
 }
 
 function already_playing() {
-    currentSong = trackLinkArray[trackNumber];
+    var currentSong = trackLinkArray[trackNumber];
     player.setAttribute('src', currentSong);
+    updateTrack(currentSong);
     player.play();
 }
 
@@ -99,10 +103,18 @@ function lastTrack() {
 function resetTrack() {
     player.pause();
     trackNumber = 0;
+    updateTrack(currentSong);
     return trackNumber;
 }
 
 /* Changing volume */
 function change_vol(value) {
     player.volume = value;
+}
+
+/* Updates divs to display information of currentSong */
+const projectTitleDiv = document.getElementById('project-title').children[0];
+projectTitleDiv.innerHTML = currentSong;
+function updateTrack(currentSong) {
+    projectTitleDiv.innerHTML = currentSong;
 }
