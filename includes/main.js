@@ -32,7 +32,7 @@ var currentSong = trackLinkArray[trackNumber];
 /* play/pause button */
 function play_pause_aud() {
     if (player.paused){
-        player.setAttribute('src',currentSong);
+        player.setAttribute('src', currentSong);
         player.play();
     }
     else if (trackNumber +1 === trackLinkArray.length) {
