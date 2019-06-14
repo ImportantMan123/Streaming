@@ -1,8 +1,69 @@
+var earlProject = {
+    "artist_name" : "Earl Sweatshirt",
+    "project_name" : "Earl Sweatshirt - Not On Spotify",
+    "project_tracks" : {
+        track_1 : {
+            track_title : "Elimination Chamber",
+            track_src : "tracks/01-Elimination_Chamber.mp3"
+        },
+        track_2 : {
+            track_title : "The Daily News",
+            track_src : "tracks/02-The-Daily-News.mp3"
+        },
+        track_3 : {
+            track_title : "Gamebreaker",
+            track_src : "tracks/03-Gamebreaker.mp3"
+        },
+        track_4 : {
+            track_title : "Between Villains",
+            track_src : "tracks/04-Between-Villains.mp3"
+        },
+        track_5 : {
+            track_title : "45",
+            track_src : "tracks/05-45.mp3"
+        },
+        track_6 : {
+            track_title : "45",
+            track_src : "tracks/06-Balance.mp3"
+        },
+        track_7 : {
+            track_title : "Nebraska",
+            track_src : "tracks/07-Nebraska.mp3"
+        },
+        track_8 : {
+            track_title : "Quest/Power",
+            track_src : "tracks/07-Nebraska.mp3"
+        },
+        track_9 : {
+            track_title : "Wind In My Sails",
+            track_src : "tracks/09-Wind-In-My-Sails.mp3"
+        },
+        track_10 : {
+            track_title : "Warlord-Leather",
+            track_src : "tracks/10-Warlord-Leather.mp3"
+        },
+        track_11 : {
+            track_title : "Knucklehead",
+            track_src : "tracks/11-Knucklehead.mp3"
+        },
+        track_12 : {
+            track_title : "Bill",
+            track_src : "tracks/12-Bill.mp3
+        }
+    }
+}
+
+
+
+
+/*
 const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Daily-News.mp3", "tracks/03-Gamebreaker.mp3", "tracks/04-Between-Villains.mp3", "tracks/05-45.mp3", "tracks/06-Balance.mp3", "tracks/07-Nebraska.mp3", "tracks/08-Quest-Power.mp3", "tracks/09-Wind-In-My-Sails.mp3", "tracks/10-Warlord-Leather.mp3", "tracks/11-Knucklehead.mp3", "tracks/12-Bill.mp3"];
-/* Just changing this so it has the most up to date bits on the master yoo */
+ */
+
 const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
 var projectTrackTitle = projectTrackCont.children[1];
+
 
 /* Dynamically copy & create all the track information */
 for(let i = 0; i < trackLinkArray.length; i++) {
