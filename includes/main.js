@@ -52,7 +52,7 @@ function auto_play() {
     else {
         trackNumber ++;
         var currentSong = trackLinkArray[trackNumber];
-        updateTrack(currentSong);
+        updateTrack(trackNumber);
         player.setAttribute('src',currentSong);
         player.play();
     }
@@ -70,7 +70,7 @@ function prev_aud() {
     else {
         trackNumber --;
         updateTrack(trackNumber);
-        already_playing(trackNumber--);
+        already_playing(currentSong);
     }
 }
 
