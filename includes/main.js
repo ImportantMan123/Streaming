@@ -64,12 +64,12 @@ function prev_aud() {
         resetTrack();
     }
     else if (player.paused) {
-        var currentSong = trackLinkArray[trackNumber];
         trackNumber --;
-        updateTrack(currentSong);
-        return trackNumber;
+        updateTrack(trackNumber);
     }
     else {
+        trackNumber --;
+        updateTrack(trackNumber);
         already_playing(trackNumber--);
     }
 }
@@ -79,20 +79,18 @@ function next_aud() {
         resetTrack();
     }
     else if (player.paused) {
-        var currentSong = trackLinkArray[trackNumber];
         trackNumber ++;
-        updateTrack(currentSong);
-        return trackNumber;
+        updateTrack(trackNumber);
     }
     else {
-        already_playing(trackNumber++);
+        trackNumber ++;
+        updateTrack(trackNumber);
+        already_playing(currentSong);
     }
 }
 
-function already_playing() {
-    var currentSong = trackLinkArray[trackNumber];
+function already_playing(currentSong) {
     player.setAttribute('src', currentSong);
-    updateTrack(currentSong);
     player.play();
 }
 
@@ -105,8 +103,7 @@ function lastTrack() {
 function resetTrack() {
     player.pause();
     trackNumber = 0;
-    updateTrack(currentSong);
-    return trackNumber;
+    updateTrack(trackNumber);
 }
 
 /* Changing volume */
@@ -127,7 +124,8 @@ playTitleDiv.innerHTML = currentSong;
 const playArtistDiv = document.getElementById('play-artist').children[0];
 playArtistDiv.innerHTML = currentSong;
 
-function updateTrack(currentSong) {
+function updateTrack(trackNumber) {
+    currentSong = trackLinkArray[trackNumber];
     projectTitleDiv.innerHTML = currentSong;
     playTitleDiv.innerHTML = currentSong;
     playArtistDiv.innerHTML = currentSong;
