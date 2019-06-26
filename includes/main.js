@@ -67,9 +67,12 @@ function prev_aud() {
         trackNumber --;
         updateTrack(trackNumber);
     }
-    else {
+    else if (player.currentTime < 3) {
         trackNumber --;
         updateTrack(trackNumber);
+        already_playing(currentSong);
+    }
+    else {
         already_playing(currentSong);
     }
 }
@@ -110,6 +113,9 @@ function resetTrack() {
 function change_vol(value) {
     player.volume = value;
 }
+
+/* Checks time of song being played */
+
 
 /* Updates divs to display information of currentSong */
 const projectTitleDiv = document.getElementById('project-title').children[0];
