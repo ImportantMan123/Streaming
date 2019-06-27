@@ -23,6 +23,7 @@ function createProjectTrackCont(cycleNumber) {
         projectTrackCloneTitle.innerHTML = trackLinkArray[cycleNumber];
     }
 }
+
 /* Information for playing music */
 const player = document.getElementById('music_player');
 var trackLinkArrayLength = trackLinkArray.length;
@@ -32,8 +33,13 @@ var currentSong = trackLinkArray[trackNumber];
 /* play/pause button */
 function play_pause_aud() {
     if (player.paused){
-        player.setAttribute('src', currentSong);
-        player.play();
+        if (player.currentTime > 0) {
+            player.play();
+        }
+        else {
+            player.setAttribute('src', currentSong);
+            player.play();
+        }
     }
     else if (trackNumber +1 === trackLinkArray.length) {
         lastTrack();
@@ -117,6 +123,8 @@ function change_vol(value) {
 /* Gets amount of time played by track thus far */
 const currentTimeDiv = document.getElementById('current-time');
 var currentTimeDivText = currentTimeDiv.children[0];
+const endTimeDiv = document.getElementById('end-time');
+var endTimeDivText = endTimeDiv.children[0];
 
 player.ontimeupdate = function() {
     updateTime();
@@ -138,17 +146,24 @@ function updateTime() {
         return i;
     }
 
+    var endS = Math.floor(player.duration - player.currentTime);
+    var endM = 0;
+    var endH = 0;
+    if (endS >= 60) {
+        endM = Math.floor(endS/60);
+        endS = endS - (endM * 60);
+    }
+    else if (endS === 0) {
+        endM = 0;
+        endS = 0;
+    }
+
+    endM = checkTime(endM);
+    endS = checkTime(endS);
+
     currentTimeDivText.innerHTML = m + ":" + s;
+    endTimeDivText.innerHTML = endM + ":" + endS;
 }
-
-/* Checks how long the song has left to play */
-
-const endTimeDiv = document.getElementById('end-time');
-var endTimeDivText = endTimeDiv.children[0];
-
-
-
-
 /* Updates divs to display information of currentSong */
 const projectTitleDiv = document.getElementById('project-title').children[0];
 projectTitleDiv.innerHTML = currentSong;
@@ -164,10 +179,9 @@ playArtistDiv.innerHTML = currentSong;
 
 function updateTrack(trackNumber) {
     currentSong = trackLinkArray[trackNumber];
+    player.setAttribute('src', currentSong);
     projectTitleDiv.innerHTML = currentSong;
     playTitleDiv.innerHTML = currentSong;
     playArtistDiv.innerHTML = currentSong;
     projectArtistDiv.innerHTML = currentSong;
 }
-
-

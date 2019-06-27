@@ -320,6 +320,9 @@ main {
 }
 
 .play-back-timing {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     background: #CCCCCC;
     min-height: 10px;
     min-width: 10px;
