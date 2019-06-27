@@ -114,7 +114,39 @@ function change_vol(value) {
     player.volume = value;
 }
 
-/* Checks time of song being played */
+/* Gets amount of time played by track thus far */
+const currentTimeDiv = document.getElementById('current-time');
+var currentTimeDivText = currentTimeDiv.children[0];
+
+player.ontimeupdate = function() {
+    updateTime();
+}
+
+function updateTime() {
+    var s = Math.floor(player.currentTime);
+    var m = 0;
+    var h = 0;
+    if (s >= 60) {
+        m = Math.floor(s/60);
+        s = s - (m * 60);
+    }
+    m = checkTime(m);
+    s = checkTime(s);
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i}; //adds zero in front of number < 10
+        return i;
+    }
+
+    currentTimeDivText.innerHTML = m + ":" + s;
+}
+
+/* Checks how long the song has left to play */
+
+const endTimeDiv = document.getElementById('end-time');
+var endTimeDivText = endTimeDiv.children[0];
+
+
 
 
 /* Updates divs to display information of currentSong */
