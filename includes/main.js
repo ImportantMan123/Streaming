@@ -41,9 +41,6 @@ function play_pause_aud() {
             player.play();
         }
     }
-    else if (trackNumber +1 === trackLinkArray.length) {
-        lastTrack();
-    }
     else {
         player.pause();
     }
