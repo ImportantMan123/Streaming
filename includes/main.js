@@ -117,7 +117,7 @@ function change_vol(value) {
     player.volume = value;
 }
 
-/* Gets amount of time played by track thus far */
+/* Displays the time played by track thus far */
 const currentTimeDiv = document.getElementById('current-time');
 var currentTimeDivText = currentTimeDiv.children[0];
 const endTimeDiv = document.getElementById('end-time');
@@ -125,7 +125,8 @@ var endTimeDivText = endTimeDiv.children[0];
 
 player.ontimeupdate = function() {
     updateTime();
-}
+    updateProgressBar();
+};
 
 function updateTime() {
     var s = Math.floor(player.currentTime);
@@ -161,6 +162,15 @@ function updateTime() {
     currentTimeDivText.innerHTML = m + ":" + s;
     endTimeDivText.innerHTML = endM + ":" + endS;
 }
+
+/* Updates progress bar as track plays */
+const progressBar = document.getElementById('progress-bar');
+function updateProgressBar(){
+    increment = 10/player.duration;
+    var progressTime = Math.min(increment * player.currentTime * 10, 100);
+    progressBar.style.width = progressTime+'%';
+}
+
 /* Updates divs to display information of currentSong */
 const projectTitleDiv = document.getElementById('project-title').children[0];
 projectTitleDiv.innerHTML = currentSong;
