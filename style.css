@@ -306,16 +306,25 @@ main {
 
 #play-back-btm {
     display: flex;
-    background: aquamarine;
     width: 100%;
     flex-direction: row;
     align-items: center;
 }
 
-#progress-bar {
+#progress-cont {
     width: 100%;
     background-color: grey;
     height:8px;
+    border-radius:8px;
+}
+
+#progress-bar {
+    width: 0px;
+    display: flex;
+    color: mediumseagreen;
+    background: #006B5A;
+    height:100%;
+    transition: width .1s linear;
     border-radius:8px;
 }
 
