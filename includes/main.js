@@ -117,11 +117,7 @@ function change_vol(value) {
     player.volume = value;
 }
 
-<<<<<<< HEAD
 /* Displays amount of time played by track thus far */
-=======
-/* Displays the time played by track thus far */
->>>>>>> javaTemplate
 const currentTimeDiv = document.getElementById('current-time');
 var currentTimeDivText = currentTimeDiv.children[0];
 const endTimeDiv = document.getElementById('end-time');
@@ -129,10 +125,7 @@ var endTimeDivText = endTimeDiv.children[0];
 
 player.ontimeupdate = function() {
     updateTime();
-<<<<<<< HEAD
-=======
     updateProgressBar();
->>>>>>> javaTemplate
 };
 
 function updateTime() {
@@ -170,8 +163,6 @@ function updateTime() {
     endTimeDivText.innerHTML = endM + ":" + endS;
 }
 
-<<<<<<< HEAD
-=======
 /* Updates progress bar as track plays */
 const progressBar = document.getElementById('progress-bar');
 function updateProgressBar(){
