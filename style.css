@@ -199,6 +199,14 @@ main {
     padding:0px 10px;
 }
 
+.project-track-cont:hover {
+    filter: brightness(125%);
+}
+
+.project-track-cont:hover .project-track-no-cont {
+
+}
+
 .project-track-no-cont {
     display: flex;
     align-items: center;

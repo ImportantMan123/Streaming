@@ -30,19 +30,32 @@ var trackLinkArrayLength = trackLinkArray.length;
 var trackNumber = 0;
 var currentSong = trackLinkArray[trackNumber];
 
+const playTrackBtn = document.getElementById('play-track');
+/* Change the play button to play symbol */
+function play_btn_play() {
+    playTrackBtn.setAttribute('src', 'images/play.gif');
+}
+/* Change the play button to pause symbol */
+function play_btn_pause() {
+    playTrackBtn.setAttribute('src', 'images/pause.gif');
+}
+
 /* play/pause button */
 function play_pause_aud() {
     if (player.paused){
         if (player.currentTime > 0) {
             player.play();
+            play_btn_pause();
         }
         else {
             player.setAttribute('src', currentSong);
             player.play();
+            play_btn_pause();
         }
     }
     else {
         player.pause();
+        play_btn_play();
     }
 }
 
@@ -53,6 +66,7 @@ function auto_play() {
         lastTrack();
     }
     else {
+        resetProgressBar();
         trackNumber ++;
         var currentSong = trackLinkArray[trackNumber];
         updateTrack(trackNumber);
@@ -78,6 +92,7 @@ function prev_aud() {
     else {
         already_playing(currentSong);
     }
+    resetProgressBar();
 }
 
 function next_aud() {
@@ -93,6 +108,7 @@ function next_aud() {
         updateTrack(trackNumber);
         already_playing(currentSong);
     }
+    resetProgressBar();
 }
 
 function already_playing(currentSong) {
@@ -108,6 +124,7 @@ function lastTrack() {
 
 function resetTrack() {
     player.pause();
+    play_btn_play();
     trackNumber = 0;
     updateTrack(trackNumber);
 }
@@ -169,6 +186,10 @@ function updateProgressBar(){
     increment = 10/player.duration;
     var progressTime = Math.min(increment * player.currentTime * 10, 100);
     progressBar.style.width = progressTime+'%';
+}
+
+function resetProgressBar(){
+    progressBar.style.width = 0;
 }
 
 /* Updates divs to display information of currentSong */
