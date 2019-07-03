@@ -2,7 +2,8 @@ const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Dail
 /* Just changing this so it has the most up to date bits on the master yoo */
 const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
-var projectTrackTitle = projectTrackCont.children[1];
+var projectTrackDiv = projectTrackCont.children[1];
+var projectTrackTitle = projectTrackDiv.children[0];
 
 /* Dynamically copy & create all the track information */
 for(let i = 0; i < trackLinkArray.length; i++) {
@@ -12,13 +13,13 @@ function createProjectTrackCont(cycleNumber) {
     if (projectTrackTitle.innerHTML === ""){
         projectTrackTitle.innerHTML = trackLinkArray[cycleNumber];
         var projectTrackNo = projectTrackCont.children[0];
-        projectTrackNo.innerHTML = cycleNumber + 1;
+        projectTrackNo.children[0].innerHTML = cycleNumber + 1;
     }
     else {
         var projectTrackClone = projectTrackCont.cloneNode(true);
         projectContBtm.appendChild(projectTrackClone);
         var projectTrackCloneNo = projectTrackClone.children[0];
-        projectTrackCloneNo.innerHTML = cycleNumber + 1;
+        projectTrackCloneNo.children[0].innerHTML = cycleNumber + 1;
         var projectTrackCloneTitle = projectTrackClone.children[1];
         projectTrackCloneTitle.innerHTML = trackLinkArray[cycleNumber];
     }

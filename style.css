@@ -203,8 +203,19 @@ main {
     filter: brightness(125%);
 }
 
-.project-track-cont:hover .project-track-no-cont {
+.project-track-cont:hover .project-track-no-cont p {
+    display: none;
+}
 
+.project-track-cont:hover .project-track-no-cont:before {
+    position: relative;
+    right:145px;
+    content: url("images/play.png");
+    transform: scale(.03);
+}
+
+.project-track-cont:hover .project-track-no-cont:hover {
+    filter: brightness(150%);
 }
 
 .project-track-no-cont {
