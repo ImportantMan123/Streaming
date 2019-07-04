@@ -214,8 +214,8 @@ main {
     transform: scale(.03);
 }
 
-.project-track-cont:hover .project-track-no-cont:hover {
-    filter: brightness(150%);
+.project-track-cont:hover .project-track-title-cont p:hover {
+    color: yellow;
 }
 
 .project-track-no-cont {
