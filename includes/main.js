@@ -21,7 +21,7 @@ function createProjectTrackCont(cycleNumber) {
         var projectTrackCloneNo = projectTrackClone.children[0];
         projectTrackCloneNo.children[0].innerHTML = cycleNumber + 1;
         var projectTrackCloneTitle = projectTrackClone.children[1];
-        projectTrackCloneTitle.innerHTML = trackLinkArray[cycleNumber];
+        projectTrackCloneTitle.children[0].innerHTML = trackLinkArray[cycleNumber];
     }
 }
 
