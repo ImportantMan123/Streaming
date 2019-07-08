@@ -199,26 +199,29 @@ main {
     padding:0px 10px;
 }
 
+.project-track-cont a {
+    text-decoration: none;
+}
+
 .project-track-cont:hover {
     filter: brightness(125%);
 }
 
-.project-track-cont:hover .project-track-no-cont p {
+.project-track-cont:hover .project-track-no-cont p span {
     display: none;
 }
 
-.project-track-cont:hover .project-track-no-cont:before {
+.project-track-cont:hover .project-track-no-cont p:before {
     position: relative;
-    right:145px;
-    content: url("images/play.png");
-    transform: scale(.03);
+    top:4px;
+    content: url("images/play_small.png");
 }
 
 .project-track-cont:hover .project-track-no-cont:hover {
     filter: brightness(200%);
 }
 
-.project-track-cont:hover .project-track-title-cont p:hover {
+.project-track-cont:hover .project-track-title-cont a:hover {
     color:yellow;
 }
 

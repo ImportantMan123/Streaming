@@ -3,7 +3,8 @@ const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Dail
 const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
 var projectTrackDiv = projectTrackCont.children[1];
-var projectTrackTitle = projectTrackDiv.children[0];
+var projectTrackAhref = projectTrackDiv.children[0];
+var projectTrackTitle = projectTrackAhref.children[0];
 
 /* Dynamically copy & create all the track information */
 for(let i = 0; i < trackLinkArray.length; i++) {
@@ -12,13 +13,17 @@ for(let i = 0; i < trackLinkArray.length; i++) {
 function createProjectTrackCont(cycleNumber) {
     if (projectTrackTitle.innerHTML === ""){
         projectTrackTitle.innerHTML = trackLinkArray[cycleNumber];
-        var projectTrackNo = projectTrackCont.children[0];
+        var projectTrackNoAhref = projectTrackCont.children[0];
+        var projectTrackNoP = projectTrackNoAhref.children[0];
+        var projectTrackNo = projectTrackNoP.children[0];
         projectTrackNo.children[0].innerHTML = cycleNumber + 1;
     }
     else {
         var projectTrackClone = projectTrackCont.cloneNode(true);
         projectContBtm.appendChild(projectTrackClone);
-        var projectTrackCloneNo = projectTrackClone.children[0];
+        var projectTrackCloneNoAhref = projectTrackClone.children[0];
+        var projectTrackCloneNoP = projectTrackCloneNoAhref.children[0];
+        var projectTrackCloneNo = projectTrackCloneNoP.children[0];
         projectTrackCloneNo.children[0].innerHTML = cycleNumber + 1;
         var projectTrackCloneTitle = projectTrackClone.children[1];
         projectTrackCloneTitle.children[0].innerHTML = trackLinkArray[cycleNumber];
@@ -34,11 +39,11 @@ var currentSong = trackLinkArray[trackNumber];
 const playTrackBtn = document.getElementById('play-track');
 /* Change the play button to play symbol */
 function play_btn_play() {
-    playTrackBtn.setAttribute('src', 'images/play.gif');
+    playTrackBtn.setAttribute('src', 'images/play.png');
 }
 /* Change the play button to pause symbol */
 function play_btn_pause() {
-    playTrackBtn.setAttribute('src', 'images/pause.gif');
+    playTrackBtn.setAttribute('src', 'images/pause.png');
 }
 
 /* play/pause button */
@@ -214,3 +219,8 @@ function updateTrack(trackNumber) {
     playArtistDiv.innerHTML = currentSong;
     projectArtistDiv.innerHTML = currentSong;
 }
+
+/* Plays track selected in the project-track-title-cont */
+function playSpecTrack(info) {
+    console.log(info);
+};
