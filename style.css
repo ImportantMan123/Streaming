@@ -217,7 +217,7 @@ main {
     content: url("images/play_small.png");
 }
 
-.project-track-cont:hover .project-track-no-cont:hover {
+.project-track-cont:hover .project-track-no-cont p:hover {
     filter: brightness(200%);
 }
 

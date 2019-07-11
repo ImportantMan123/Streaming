@@ -221,6 +221,26 @@ function updateTrack(trackNumber) {
 }
 
 /* Plays track selected in the project-track-title-cont */
-function playSpecTrack(info) {
-    console.log(info);
-};
+function playTrackNumber(ogNumber) {
+    var strippedNumber = ogNumber.replace(/(<([^>]+)>)/ig, "");
+    var trimmedNumber = strippedNumber.trim();
+    trackNumber = trimmedNumber - 1;
+    updateTrack(trackNumber);
+    play_pause_aud();
+}
+
+function playSpecTrack(ogTrack) {
+    var strippedTrack = ogTrack.replace(/(<([^>]+)>)/ig, "");
+    var trimmedTrack = strippedTrack.trim();
+    for(let i = 0; i < trackLinkArray.length; i++) {
+        findTrackNumber(i);
+    }
+    function findTrackNumber(cycleNumber) {
+        let foundTrack = trackLinkArray[cycleNumber];
+        if (foundTrack === trimmedTrack){
+            updateTrack(cycleNumber);
+            play_pause_aud();
+        }
+    }
+
+}
