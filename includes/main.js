@@ -1,4 +1,61 @@
 const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Daily-News.mp3", "tracks/03-Gamebreaker.mp3", "tracks/04-Between-Villains.mp3", "tracks/05-45.mp3", "tracks/06-Balance.mp3", "tracks/07-Nebraska.mp3", "tracks/08-Quest-Power.mp3", "tracks/09-Wind-In-My-Sails.mp3", "tracks/10-Warlord-Leather.mp3", "tracks/11-Knucklehead.mp3", "tracks/12-Bill.mp3"];
+
+const earlProject = {
+    artist_name : "Earl Sweatshirt",
+    album_title : "Loosies",
+    release_year : "2019",
+    tracks: {
+        song_1 : {
+            song_title: "Elimination Chamber",
+            string_link: "tracks/01-Elimination_Chamber.mp3",
+        },
+        song_2 : {
+            song_title : "The Daily News",
+            string_link : "tracks/02-The-Daily-News.mp3",
+        },
+        song_3 : {
+            song_title : "Gamebreaker",
+            string_link : "tracks/03-Gamebreaker.mp3",
+        },
+        song_4 : {
+            song_title : "Between Villains",
+            string_link : "tracks/04-Between-Villains.mp3",
+        },
+        song_5 : {
+            song_title : "45",
+            string_link : "tracks/05-45.mp3",
+        },
+        song_6 : {
+            song_title : "Balance",
+            string_link : "tracks/06-Balance.mp3",
+        },
+        song_7 : {
+            song_title : "Nebraska",
+            string_link : "tracks/07-Nebraska.mp3",
+        },
+        song_8 : {
+            song_title : "Quest/Power",
+            string_link : "tracks/08-Quest-Power.mp3",
+        },
+        song_9 : {
+            song_title : "Wind In My Sails",
+            string_link : "tracks/09-Wind-In-My-Sails.mp3",
+        },
+        song_10 : {
+            song_title : "Warlord Leather",
+            string_link : "tracks/10-Warlord-Leather.mp3",
+        },
+        song_11 : {
+            song_title : "Knucklehead",
+            string_link : "tracks/11-Knucklehead.mp3",
+        },
+        song_12 : {
+            song_title : "Bill",
+            string_link : "tracks/12-Bill.mp3",
+        },
+    }
+};
+
 /* Just changing this so it has the most up to date bits on the master yoo */
 const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
@@ -242,5 +299,4 @@ function playSpecTrack(ogTrack) {
             play_pause_aud();
         }
     }
-
 }
