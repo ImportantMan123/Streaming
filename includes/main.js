@@ -1,59 +1,47 @@
-const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Daily-News.mp3", "tracks/03-Gamebreaker.mp3", "tracks/04-Between-Villains.mp3", "tracks/05-45.mp3", "tracks/06-Balance.mp3", "tracks/07-Nebraska.mp3", "tracks/08-Quest-Power.mp3", "tracks/09-Wind-In-My-Sails.mp3", "tracks/10-Warlord-Leather.mp3", "tracks/11-Knucklehead.mp3", "tracks/12-Bill.mp3"];
+/*const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Daily-News.mp3", "tracks/03-Gamebreaker.mp3", "tracks/04-Between-Villains.mp3", "tracks/05-45.mp3", "tracks/06-Balance.mp3", "tracks/07-Nebraska.mp3", "tracks/08-Quest-Power.mp3", "tracks/09-Wind-In-My-Sails.mp3", "tracks/10-Warlord-Leather.mp3", "tracks/11-Knucklehead.mp3", "tracks/12-Bill.mp3"];*/
 
 const earlProject = {
     artist_name : "Earl Sweatshirt",
     album_title : "Loosies",
     release_year : "2019",
-    tracks: {
-        song_1 : {
-            song_title: "Elimination Chamber",
-            string_link: "tracks/01-Elimination_Chamber.mp3",
-        },
-        song_2 : {
+    tracks: [
+        {
+            song_title : "Elimination Chamber",
+            string_link : "tracks/01-Elimination_Chamber.mp3"
+        }, {
             song_title : "The Daily News",
-            string_link : "tracks/02-The-Daily-News.mp3",
-        },
-        song_3 : {
+            string_link : "tracks/02-The-Daily-News.mp3"
+        }, {
             song_title : "Gamebreaker",
-            string_link : "tracks/03-Gamebreaker.mp3",
-        },
-        song_4 : {
+            string_link : "tracks/03-Gamebreaker.mp3"
+        }, {
             song_title : "Between Villains",
-            string_link : "tracks/04-Between-Villains.mp3",
-        },
-        song_5 : {
+            string_link : "tracks/04-Between-Villains.mp3"
+        }, {
             song_title : "45",
-            string_link : "tracks/05-45.mp3",
-        },
-        song_6 : {
+            string_link : "tracks/05-45.mp3"
+        }, {
             song_title : "Balance",
-            string_link : "tracks/06-Balance.mp3",
-        },
-        song_7 : {
+            string_link : "tracks/06-Balance.mp3"
+        }, {
             song_title : "Nebraska",
-            string_link : "tracks/07-Nebraska.mp3",
-        },
-        song_8 : {
+            string_link : "tracks/07-Nebraska.mp3"
+        }, {
             song_title : "Quest/Power",
-            string_link : "tracks/08-Quest-Power.mp3",
-        },
-        song_9 : {
+            string_link : "tracks/08-Quest-Power.mp3"
+        }, {
             song_title : "Wind In My Sails",
-            string_link : "tracks/09-Wind-In-My-Sails.mp3",
-        },
-        song_10 : {
+            string_link : "tracks/09-Wind-In-My-Sails.mp3"
+        }, {
             song_title : "Warlord Leather",
-            string_link : "tracks/10-Warlord-Leather.mp3",
-        },
-        song_11 : {
+            string_link : "tracks/10-Warlord-Leather.mp3"
+        }, {
             song_title : "Knucklehead",
-            string_link : "tracks/11-Knucklehead.mp3",
-        },
-        song_12 : {
-            song_title : "Bill",
-            string_link : "tracks/12-Bill.mp3",
-        },
-    }
+            string_link : "tracks/11-Knucklehead.mp3"
+        }, {
+            song_title: "Bill",
+            string_link: "tracks/12-Bill.mp3"
+        }]
 };
 
 /* Just changing this so it has the most up to date bits on the master yoo */
@@ -64,16 +52,14 @@ var projectTrackAhref = projectTrackDiv.children[0];
 var projectTrackTitle = projectTrackAhref.children[0];
 
 /* Dynamically copy & create all the track information */
-for(let i = 0; i < trackLinkArray.length; i++) {
-    createProjectTrackCont(i);
-}
-function createProjectTrackCont(cycleNumber) {
+
+Object.keys(earlProject.tracks).forEach(function(trackIteration) {
     if (projectTrackTitle.innerHTML === ""){
-        projectTrackTitle.innerHTML = trackLinkArray[cycleNumber];
+        projectTrackTitle.innerHTML = earlProject.tracks[trackIteration].song_title;
         var projectTrackNoAhref = projectTrackCont.children[0];
         var projectTrackNoP = projectTrackNoAhref.children[0];
         var projectTrackNo = projectTrackNoP.children[0];
-        projectTrackNo.children[0].innerHTML = cycleNumber + 1;
+        projectTrackNo.children[0].innerHTML = parseInt(trackIteration) + 1;
     }
     else {
         var projectTrackClone = projectTrackCont.cloneNode(true);
@@ -81,11 +67,12 @@ function createProjectTrackCont(cycleNumber) {
         var projectTrackCloneNoAhref = projectTrackClone.children[0];
         var projectTrackCloneNoP = projectTrackCloneNoAhref.children[0];
         var projectTrackCloneNo = projectTrackCloneNoP.children[0];
-        projectTrackCloneNo.children[0].innerHTML = cycleNumber + 1;
+        projectTrackCloneNo.children[0].innerHTML = parseInt(trackIteration) + 1;
         var projectTrackCloneTitle = projectTrackClone.children[1];
-        projectTrackCloneTitle.children[0].innerHTML = trackLinkArray[cycleNumber];
+        projectTrackCloneTitle.children[0].innerHTML = earlProject.tracks[trackIteration].song_title;
     }
-}
+});
+
 
 /* Information for playing music */
 const player = document.getElementById('music_player');
