@@ -1,5 +1,3 @@
-/*const trackLinkArray = ["tracks/01-Elimination_Chamber.mp3", "tracks/02-The-Daily-News.mp3", "tracks/03-Gamebreaker.mp3", "tracks/04-Between-Villains.mp3", "tracks/05-45.mp3", "tracks/06-Balance.mp3", "tracks/07-Nebraska.mp3", "tracks/08-Quest-Power.mp3", "tracks/09-Wind-In-My-Sails.mp3", "tracks/10-Warlord-Leather.mp3", "tracks/11-Knucklehead.mp3", "tracks/12-Bill.mp3"];*/
-
 const earlProject = {
     artist_name : "Earl Sweatshirt",
     album_title : "Loosies",
@@ -76,9 +74,9 @@ Object.keys(earlProject.tracks).forEach(function(trackIteration) {
 
 /* Information for playing music */
 const player = document.getElementById('music_player');
-var trackLinkArrayLength = trackLinkArray.length;
+var trackLinkArrayLength = Object.keys(earlProject.tracks).length;
 var trackNumber = 0;
-var currentSong = trackLinkArray[trackNumber];
+var currentSong = earlProject.tracks[trackNumber].string_link;
 
 const playTrackBtn = document.getElementById('play-track');
 /* Change the play button to play symbol */
@@ -256,12 +254,12 @@ const playArtistDiv = document.getElementById('play-artist').children[0];
 playArtistDiv.innerHTML = currentSong;
 
 function updateTrack(trackNumber) {
-    currentSong = trackLinkArray[trackNumber];
+    currentSong = earlProject.tracks[trackNumber].string_link;
     player.setAttribute('src', currentSong);
-    projectTitleDiv.innerHTML = currentSong;
-    playTitleDiv.innerHTML = currentSong;
-    playArtistDiv.innerHTML = currentSong;
-    projectArtistDiv.innerHTML = currentSong;
+    projectTitleDiv.innerHTML = earlProject.artist_name;
+    playTitleDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
+    playArtistDiv.innerHTML = earlProject.artist_name;
+    projectArtistDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
 }
 
 /* Plays track selected in the project-track-title-cont */
@@ -274,14 +272,12 @@ function playTrackNumber(ogNumber) {
 }
 
 function playSpecTrack(ogTrack) {
-    var strippedTrack = ogTrack.replace(/(<([^>]+)>)/ig, "");
-    var trimmedTrack = strippedTrack.trim();
-    for(let i = 0; i < trackLinkArray.length; i++) {
+    for(let i = 0; i < trackLinkArrayLength; i++) {
         findTrackNumber(i);
     }
     function findTrackNumber(cycleNumber) {
-        let foundTrack = trackLinkArray[cycleNumber];
-        if (foundTrack === trimmedTrack){
+        let foundTrack = earlProject.tracks[cycleNumber].song_title;
+        if (foundTrack === ogTrack){
             updateTrack(cycleNumber);
             play_pause_aud();
         }
