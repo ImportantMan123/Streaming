@@ -69,6 +69,7 @@ Object.keys(earlProject.tracks).forEach(function(trackIteration) {
         var projectTrackCloneTitle = projectTrackClone.children[1];
         projectTrackCloneTitle.children[0].innerHTML = earlProject.tracks[trackIteration].song_title;
     }
+
 });
 
 

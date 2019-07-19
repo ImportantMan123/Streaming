@@ -38,7 +38,7 @@ input[type="image"]:focus {
     width:100%;
     display: flex;
     max-width: 220px;
-    background: deepskyblue;
+    background: #666666;
     height: 100%;
 }
 
@@ -49,7 +49,6 @@ input[type="image"]:focus {
     align-items: stretch;
     align-content: stretch;
     width: 100%;
-    background: blueviolet;
     max-height: 100%;
 }
 
@@ -121,6 +120,7 @@ input[type="image"]:focus {
     margin-top: 40px;
     height: 100%;
     overflow-y: scroll;
+    background: linear-gradient(90deg, #666666, #333333);
 }
 
 /***** Start Project Cont Top *****/
@@ -130,7 +130,6 @@ input[type="image"]:focus {
     flex-direction: row;
     align-items: stretch;
     align-content: stretch;
-    background: deeppink;
     width: 100%;
     max-width: 100%;
     max-height: 180px;
@@ -139,7 +138,6 @@ input[type="image"]:focus {
 
 #project-cont-art {
     display:flex;
-    background: turquoise;
     width:25%;
     max-width: 25%;
     max-height: 100%;
@@ -149,7 +147,6 @@ input[type="image"]:focus {
 
 #project-art {
     display: flex;
-    background: white;
     width: 100%;
     max-height: 100%;
 }
@@ -158,7 +155,6 @@ input[type="image"]:focus {
 #project-cont-info {
     display: flex;
     flex-direction: column;
-    background: rosybrown;
     max-height: 100%;
     width:75%;
     max-width: 75%;
@@ -166,11 +162,11 @@ input[type="image"]:focus {
 }
 
 #project-title {
-
+    color: #CCCCCC;
 }
 
 #project-artist {
-
+    color: #CCCCCC;
 }
 
 /***** End Project Cont Top *****/
@@ -186,7 +182,6 @@ input[type="image"]:focus {
     min-height: 1px;
     max-height: 100%;
     padding:0 10px;
-    background: springgreen;
 }
 
 .project-track-cont {
@@ -198,13 +193,13 @@ input[type="image"]:focus {
     max-width: 100%;
     min-height: 1px;
     max-height: 30px;
-    background: darkcyan;
-    border-top: 1px solid;
+    border-top: 1px solid #777777;
     padding:0px 10px;
 }
 
 .project-track-cont a {
     text-decoration: none;
+    color: #CCCCCC !important;
 }
 
 .project-track-cont:hover {
@@ -223,11 +218,10 @@ input[type="image"]:focus {
 }
 
 .project-track-cont:hover .project-track-no-cont p:hover {
-    filter: brightness(200%);
 }
 
 .project-track-cont:hover .project-track-title-cont a:hover {
-    color:yellow;
+    color:#EEEEEE !important;
 }
 
 .project-track-no-cont {
@@ -262,7 +256,7 @@ input[type="image"]:focus {
 #play-cont {
     display: flex;
     position: fixed;
-    background: yellow;
+    background: linear-gradient(#BBBBBB, #EEEEEE);
     height: 60px;
     margin: 0 auto;
     margin-top: 1px;
@@ -276,7 +270,6 @@ input[type="image"]:focus {
 #play-now {
     display: flex;
     flex-direction: row;
-    background: orangered;
     width: 100%;
     padding:10px 5px;
     max-width: 200px;
@@ -290,7 +283,6 @@ input[type="image"]:focus {
 
 #play-img {
     display: flex;
-    background: azure;
     height: 40px;
     width: 100%;
     max-width: 40px;
@@ -298,7 +290,6 @@ input[type="image"]:focus {
 
 #play-info {
     display: flex;
-    background: azure;
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
@@ -315,7 +306,6 @@ input[type="image"]:focus {
 
 #play-back {
     display: flex;
-    background: deeppink;
     width: 100%;
     flex-direction: column;
     justify-content: space-around;
@@ -326,7 +316,6 @@ input[type="image"]:focus {
 
 #play-back-top {
     display: flex;
-    background: orange;
     width: 100%;
     max-width: 200px;
     flex-direction: row;
@@ -363,7 +352,7 @@ input[type="image"]:focus {
     display: flex;
     justify-content: center;
     align-content: center;
-    background: #CCCCCC;
+    color: #CCCCCC;
     min-height: 10px;
     min-width: 10px;
     padding: 0px 5px;
@@ -388,7 +377,6 @@ input[type="image"]:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: green;
     width: 100%;
     max-width: 200px;
 }
