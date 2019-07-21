@@ -2,6 +2,7 @@ const earlProject = {
     artist_name : "Earl Sweatshirt",
     album_title : "Loosies",
     release_year : "2019",
+    cover_art : "albumart/loosie.png",
     tracks: [
         {
             song_title : "Elimination Chamber",
@@ -78,6 +79,7 @@ const player = document.getElementById('music_player');
 var trackLinkArrayLength = Object.keys(earlProject.tracks).length;
 var trackNumber = 0;
 var currentSong = earlProject.tracks[trackNumber].string_link;
+var currentCover = earlProject.cover_art;
 
 const playTrackBtn = document.getElementById('play-track');
 /* Change the play button to play symbol */
@@ -98,6 +100,7 @@ function play_pause_aud() {
         }
         else {
             player.setAttribute('src', currentSong);
+            updateTrack(0);
             player.play();
             play_btn_pause();
         }
@@ -243,16 +246,11 @@ function resetProgressBar(){
 
 /* Updates divs to display information of currentSong */
 const projectTitleDiv = document.getElementById('project-title').children[0];
-projectTitleDiv.innerHTML = currentSong;
-
 const projectArtistDiv = document.getElementById('project-artist').children[0];
-projectArtistDiv.innerHTML = currentSong;
-
+const projectCoverDiv = document.getElementById('project-art').children[0];
 const playTitleDiv = document.getElementById('play-title').children[0];
-playTitleDiv.innerHTML = currentSong;
-
 const playArtistDiv = document.getElementById('play-artist').children[0];
-playArtistDiv.innerHTML = currentSong;
+const playCoverDiv = document.getElementById('play-img').children[0];
 
 function updateTrack(trackNumber) {
     currentSong = earlProject.tracks[trackNumber].string_link;
@@ -261,6 +259,7 @@ function updateTrack(trackNumber) {
     playTitleDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
     playArtistDiv.innerHTML = earlProject.artist_name;
     projectArtistDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
+    playCoverDiv.setAttribute('src', currentCover);
 }
 
 /* Plays track selected in the project-track-title-cont */
@@ -273,13 +272,16 @@ function playTrackNumber(ogNumber) {
 }
 
 function playSpecTrack(ogTrack) {
+    var strippedTrack = ogTrack.replace(/(<([^>]+)>)/ig, "");
+    var trimmedTrack = strippedTrack.trim();
     for(let i = 0; i < trackLinkArrayLength; i++) {
         findTrackNumber(i);
     }
     function findTrackNumber(cycleNumber) {
         let foundTrack = earlProject.tracks[cycleNumber].song_title;
-        if (foundTrack === ogTrack){
-            updateTrack(cycleNumber);
+        if (foundTrack === trimmedTrack){
+            trackNumber = cycleNumber;
+            updateTrack(trackNumber);
             play_pause_aud();
         }
     }

@@ -37,7 +37,7 @@ input[type="image"]:focus {
     top: 0;
     width:100%;
     display: flex;
-    max-width: 220px;
+    max-width: 200px;
     background: #666666;
     height: 100%;
 }
@@ -218,6 +218,7 @@ input[type="image"]:focus {
 }
 
 .project-track-cont:hover .project-track-no-cont p:hover {
+    filter: brightness(200%);
 }
 
 .project-track-cont:hover .project-track-title-cont a:hover {
@@ -257,7 +258,7 @@ input[type="image"]:focus {
     display: flex;
     position: fixed;
     background: linear-gradient(#BBBBBB, #EEEEEE);
-    height: 60px;
+    height: 70px;
     margin: 0 auto;
     margin-top: 1px;
     width: 100%;
@@ -271,8 +272,8 @@ input[type="image"]:focus {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding:10px 5px;
-    max-width: 200px;
+    padding:5px 5px;
+    max-width: 230px;
     justify-content: space-between;
     align-items: center;
 }
@@ -283,32 +284,40 @@ input[type="image"]:focus {
 
 #play-img {
     display: flex;
-    height: 40px;
+    height: 50px;
     width: 100%;
-    max-width: 40px;
+    max-width: 50px;
+    overflow: hidden;
+}
+
+#play-img img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 #play-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
 
-#play-title {
-
+#play-title p{
+    font-size: 14px;
+    margin: 2px 0px;
 }
 
-#play-artist {
-
+#play-artist p{
+    font-size: 12px;
+    margin: 2px 0px;
 }
 
 #play-back {
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     align-content: stretch;
     padding: 0 20px;
@@ -321,7 +330,7 @@ input[type="image"]:focus {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    padding: 5px 10px;
 }
 
 #play-back-btm {
@@ -329,6 +338,7 @@ input[type="image"]:focus {
     width: 100%;
     flex-direction: row;
     align-items: center;
+    margin: 5px 0px;
 }
 
 #progress-cont {
@@ -352,7 +362,8 @@ input[type="image"]:focus {
     display: flex;
     justify-content: center;
     align-content: center;
-    color: #CCCCCC;
+    justify-content: center;
+    color: #000000;
     min-height: 10px;
     min-width: 10px;
     padding: 0px 5px;
@@ -360,7 +371,6 @@ input[type="image"]:focus {
 
 .play-back-btns {
     display: flex;
-    background: coral;
     width: 12px;
     height: 12px;
     text-decoration: none;
@@ -378,7 +388,7 @@ input[type="image"]:focus {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 200px;
+    max-width: 230px;
 }
 
 /***** End Playback *****/
