@@ -9,7 +9,7 @@
 html, body {
     background: white;
     height: 100%;
-    font-family: Damascus;
+    font-family: Damascus, Times;
 }
 
 main {
@@ -38,8 +38,9 @@ input[type="image"]:focus {
     width:100%;
     display: flex;
     max-width: 200px;
-    background: #666666;
+    background: #555555;
     height: 100%;
+    border-right: 1px solid #777777;
 }
 
 #middle-cont {
@@ -50,6 +51,7 @@ input[type="image"]:focus {
     align-content: stretch;
     width: 100%;
     max-height: 100%;
+    background: linear-gradient(90deg, #666666, #333333);
 }
 
 /***** Start Mainbar *****/
@@ -57,12 +59,17 @@ input[type="image"]:focus {
     display: flex;
     position: fixed;
     margin: 0 auto;
-    top:0;
-    width:100%;
+    top: 0;
+    width: 100%;
     height: 40px;
-    background: bisque;
+    border-bottom: 1px solid #777777;
     align-items: center;
     align-content: stretch;
+    background: linear-gradient(90deg, #666666, #333333);
+}
+
+#main-bar a {
+    color: #CCCCCC;
 }
 
 .nav-arrow {
@@ -79,7 +86,6 @@ input[type="image"]:focus {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    border: solid 2px;
     border-radius: 20px;
     overflow: hidden;
     border-color: #CCCCCC;
@@ -120,7 +126,6 @@ input[type="image"]:focus {
     margin-top: 40px;
     height: 100%;
     overflow-y: scroll;
-    background: linear-gradient(90deg, #666666, #333333);
 }
 
 /***** Start Project Cont Top *****/
@@ -138,16 +143,19 @@ input[type="image"]:focus {
 
 #project-cont-art {
     display:flex;
-    width:25%;
-    max-width: 25%;
+    max-width: 180px;
     max-height: 100%;
-    flex: 1;
     padding: 10px;
 }
 
 #project-art {
     display: flex;
-    width: 100%;
+    width: 160px;
+    max-height: 100%;
+}
+
+#project-art img {
+    max-width: 100%;
     max-height: 100%;
 }
 
@@ -157,7 +165,6 @@ input[type="image"]:focus {
     flex-direction: column;
     max-height: 100%;
     width:75%;
-    max-width: 75%;
     padding: 10px;
 }
 
@@ -257,7 +264,7 @@ input[type="image"]:focus {
 #play-cont {
     display: flex;
     position: fixed;
-    background: linear-gradient(#BBBBBB, #EEEEEE);
+    background: linear-gradient(#999999, #CCCCCC);
     height: 70px;
     margin: 0 auto;
     margin-top: 1px;

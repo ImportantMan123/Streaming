@@ -93,14 +93,14 @@ function play_btn_pause() {
 
 /* play/pause button */
 function play_pause_aud() {
-    if (player.paused){
+    if (player.paused) {
         if (player.currentTime > 0) {
             player.play();
             play_btn_pause();
         }
         else {
             player.setAttribute('src', currentSong);
-            updateTrack(0);
+            updateTrack(trackNumber);
             player.play();
             play_btn_pause();
         }
@@ -114,13 +114,12 @@ function play_pause_aud() {
 /* automatically plays next track function */
 player.addEventListener("ended", auto_play);
 function auto_play() {
-    if (trackNumber +1 === trackLinkArray.length) {
+    if (trackNumber +1 === trackLinkArrayLength) {
         lastTrack();
     }
     else {
         resetProgressBar();
         trackNumber ++;
-        var currentSong = trackLinkArray[trackNumber];
         updateTrack(trackNumber);
         player.setAttribute('src',currentSong);
         player.play();
@@ -260,6 +259,7 @@ function updateTrack(trackNumber) {
     playArtistDiv.innerHTML = earlProject.artist_name;
     projectArtistDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
     playCoverDiv.setAttribute('src', currentCover);
+    projectCoverDiv.setAttribute('src', currentCover);
 }
 
 /* Plays track selected in the project-track-title-cont */
