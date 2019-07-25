@@ -3,6 +3,7 @@ const earlProject = {
     album_title : "Loosies",
     release_year : "2019",
     cover_art : "albumart/loosie.png",
+    project_type : "Album",
     tracks: [
         {
             song_title : "Elimination Chamber",
@@ -46,8 +47,8 @@ const earlProject = {
 /* Just changing this so it has the most up to date bits on the master yoo */
 const projectContBtm = document.getElementById('project-cont-btm');
 var projectTrackCont = projectContBtm.lastElementChild;
-var projectTrackDiv = projectTrackCont.children[1];
-var projectTrackAhref = projectTrackDiv.children[0];
+var projectTrackNoCont = projectTrackCont.children[1];
+var projectTrackAhref = projectTrackNoCont.children[0];
 var projectTrackTitle = projectTrackAhref.children[0];
 
 /* Dynamically copy & create all the track information */
@@ -244,9 +245,14 @@ function resetProgressBar(){
 }
 
 /* Updates divs to display information of currentSong */
-const projectTitleDiv = document.getElementById('project-title').children[0];
-const projectArtistDiv = document.getElementById('project-artist').children[0];
 const projectCoverDiv = document.getElementById('project-art').children[0];
+const projectTypeDiv = document.getElementById('project-title').children[0];
+const projectTitleDiv = document.getElementById('project-title').children[1];
+const projectByDiv = document.getElementById('project-artist').children[0];
+const projectArtistDiv = document.getElementById('project-artist').children[1];
+const projectNowPlaying = document.getElementById('project-track').children[0];
+const projectTrackDiv = document.getElementById('project-track').children[1];
+
 const playTitleDiv = document.getElementById('play-title').children[0];
 const playArtistDiv = document.getElementById('play-artist').children[0];
 const playCoverDiv = document.getElementById('play-img').children[0];
@@ -254,12 +260,17 @@ const playCoverDiv = document.getElementById('play-img').children[0];
 function updateTrack(trackNumber) {
     currentSong = earlProject.tracks[trackNumber].string_link;
     player.setAttribute('src', currentSong);
-    projectTitleDiv.innerHTML = earlProject.artist_name;
+    projectCoverDiv.setAttribute('src', currentCover);
+    projectTypeDiv.innerHTML = earlProject.project_type;
+    projectTitleDiv.innerHTML = earlProject.album_title;
+    projectByDiv.innerHTML = "By: ";
+    projectArtistDiv.innerHTML = earlProject.artist_name;
+    projectNowPlaying.innerHTML = "Song Playing:";
+    projectTrackDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
+
     playTitleDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
     playArtistDiv.innerHTML = earlProject.artist_name;
-    projectArtistDiv.innerHTML = earlProject.tracks[trackNumber].song_title;
     playCoverDiv.setAttribute('src', currentCover);
-    projectCoverDiv.setAttribute('src', currentCover);
 }
 
 /* Plays track selected in the project-track-title-cont */

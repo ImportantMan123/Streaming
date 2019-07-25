@@ -3,13 +3,13 @@
 * {
     margin: 0;
     padding:0;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 html, body {
     background: white;
     height: 100%;
-    font-family: Damascus, Times;
+    font-family: Helvetica;
 }
 
 main {
@@ -66,6 +66,8 @@ input[type="image"]:focus {
     align-items: center;
     align-content: stretch;
     background: linear-gradient(90deg, #666666, #333333);
+    filter: brightness(90%);
+    -webkit-filter: brightness(90%);
 }
 
 #main-bar a {
@@ -163,17 +165,44 @@ input[type="image"]:focus {
 #project-cont-info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     max-height: 100%;
     width:75%;
     padding: 10px;
 }
 
-#project-title {
+#project-title p:first-child {
+    font-size: 8px;
     color: #CCCCCC;
 }
 
+#project-title p {
+    font-weight: bold;
+    font-size: 28px;
+    color: #EEEEEE;
+}
+
 #project-artist {
+    display: flex;
+    flex-direction: row;
+}
+
+#project-artist p:first-child {
     color: #CCCCCC;
+    padding-right: 5px;
+}
+
+#project-artist p {
+    color: #EEEEEE;
+}
+
+#project-track p:first-child {
+    color: #CCCCCC;
+}
+
+#project-track p:last-child {
+    color: #EEEEEE;
+    font-size: 18px;
 }
 
 /***** End Project Cont Top *****/
@@ -204,14 +233,17 @@ input[type="image"]:focus {
     padding:0px 10px;
 }
 
+.project-track-cont:last-of-type {
+    border-bottom: 1px solid #777777;;
+}
+
 .project-track-cont a {
     text-decoration: none;
     color: #CCCCCC !important;
 }
 
 .project-track-cont:hover {
-    filter: brightness(125%);
-    outline:0;
+    background: linear-gradient(90deg, #555555, #222222);
 }
 
 .project-track-cont:hover .project-track-no-cont p span {
@@ -226,10 +258,12 @@ input[type="image"]:focus {
 
 .project-track-cont:hover .project-track-no-cont p:hover {
     filter: brightness(200%);
+    cursor: pointer;
 }
 
 .project-track-cont:hover .project-track-title-cont a:hover {
     color:#EEEEEE !important;
+    cursor: pointer;
 }
 
 .project-track-no-cont {
@@ -311,12 +345,12 @@ input[type="image"]:focus {
 }
 
 #play-title p{
-    font-size: 14px;
+    font-size: 13px;
     margin: 2px 0px;
 }
 
 #play-artist p{
-    font-size: 12px;
+    font-size: 10px;
     margin: 2px 0px;
 }
 
